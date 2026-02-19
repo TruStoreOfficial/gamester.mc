@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gamester.mc for kiosks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4B5563; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-emerald-500 selection:text-white">
 
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/2 w-96 h-96 bg-blue-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen max-w-6xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6 shadow-sm">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Official Kiosk Version</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500">
+                gamester.mc
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-medium">
+                High-performance Minecraft web client launcher. Optimized for kiosk environments.
+            </p>
+        </header>
+
+        <!-- Version Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 flex-grow content-center">
+            
+            <!-- 1.5.2 -->
+            <a href="version/V152.html" class="group relative block rounded-3xl bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)]">
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="font-mono text-3xl font-bold text-emerald-400">1.5.2</div>
+                        <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">The Redstone Update</h3>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow">Classic performance. Best for low-end hardware and old-school mechanics.</p>
+                    <div class="w-full py-3 px-4 bg-gray-950 text-white text-center font-semibold rounded-xl border border-gray-800 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-colors">Launch 1.5.2</div>
+                </div>
+            </a>
+
+            <!-- 1.8.8 -->
+            <a href="version/V188.html" class="group relative block rounded-3xl bg-gray-900 border border-gray-800 p-8 hover:bg-gray-800/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.2)]">
+                <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="font-mono text-3xl font-bold text-cyan-400">1.8.8</div>
+                        <div class="p-2 bg-cyan-500/10 text-cyan-400 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">The Bountiful Update</h3>
+                    <p class="text-gray-400 text-sm mb-8 flex-grow">Server-ready. The standard for competitive multiplayer and PvP servers.</p>
+                    <div class="w-full py-3 px-4 bg-gray-950 text-white text-center font-semibold rounded-xl border border-gray-800 group-hover:border-cyan-500/50 group-hover:bg-cyan-500/10 transition-colors">Launch 1.8.8</div>
+                </div>
+            </a>
+
+            <!-- 1.12.2 (DOWN) -->
+            <div class="relative block rounded-3xl bg-gray-900/40 border border-red-900/30 p-8">
+                <div class="relative z-10 flex flex-col h-full opacity-60">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="font-mono text-3xl font-bold text-red-500">1.12.2</div>
+                        <div class="p-2 bg-red-500/10 text-red-500 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-300 mb-2">World of Color</h3>
+                    <p class="text-gray-500 text-sm mb-8 flex-grow">This version is currently down for maintenance. Please check later.</p>
+                    <div class="w-full py-3 px-4 bg-red-950/20 text-red-500 text-center font-bold rounded-xl border border-red-900/30 cursor-not-allowed uppercase tracking-tighter text-xs">System Offline</div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-20 border-t border-gray-800/50 pt-8 flex flex-col md:flex-row items-center justify-between text-gray-500 text-xs tracking-wide">
+            <p>&copy; 2026 gamester.mc • TruStore Official</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="https://github.com/TruStoreOfficial/gamester.mc" class="hover:text-emerald-400 transition-colors uppercase font-bold">Source</a>
+                <a href="#" class="hover:text-emerald-400 transition-colors uppercase font-bold">Support</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
